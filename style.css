@@ -1,172 +1,178 @@
 body {
-    background-color: #2C3539;
+  background-color: #2C3539;
+}
+
+/* Login.css */
+
+
+
+.userauth {
+    display: flex;
+    margin-top: 3%;
+    flex-direction: column;
+    
   }
-  
-  /* Login.css */
-  
-  
-  
-  .userauth {
-      display: flex;
-      margin-top: 3%;
-      flex-direction: column;
-      
-    }
-    .userauthForm {
-      padding: 2rem;
-      border: 1px solid black;
-      
-      margin: auto;
-      background-color: gray;
-    }
-  
-    /* tauno 0701 */
-    .userauth h2 {
-      margin-top: 0;
-      color: white;
-    }
-  
-    .userauth .formGroup {
-      margin-bottom: 1.5rem;
-    }
-  
-    .userauth label {
-      display: block;
-      margin-bottom: 0.25rem;
-      color:white;
-    }
-    /* tauno 0701 */
-    .userauth input, .userauth select {
-      width: 100%;
-      padding: 0.5rem;
-      border-radius: 5px;
-      border: 1px solid black;
-      box-sizing: border-box;
-      margin-bottom: 0.5rem;
-      background-color: #2C3539;
-      color: white;
-    }
-    .userauth select {
-      background-color: white;
-    }
-  
-    button {
-      width: 100%;
-      font-size: large;
-      color: white;
-      background-color: gray;
-      border: 1px solid black;
-      cursor: pointer;
-      box-sizing: border-box;
-   
-    }
+  .userauthForm {
+    padding: 2rem;
+    border: 1px solid black;
     
-    button:hover {
-      cursor: pointer;
-      background-color: rgb(147, 147, 147);
-    }
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  /*testing - Karl */
-  
-  /*testing - Karl */
-  
-  .pageContent {
-      
-      display: grid;
-      gap: 1rem;
-      /*! grid-column: 1 / 2; */
+    margin: auto;
+    background-color: gray;
+  }
+
+  /* tauno 0701 */
+  .userauth h2 {
+    margin-top: 0;
+    color: white;
+  }
+
+  .userauth .formGroup {
+    margin-bottom: 1.5rem;
+  }
+
+  .userauth label {
+    display: block;
+    margin-bottom: 0.25rem;
+    color:white;
+  }
+  /* tauno 0701 */
+  .userauth input, .userauth select {
+    width: 100%;
     padding: 0.5rem;
-    
-/*     grid-template-columns: 1fr min-content;
-    grid-template-rows: 1fr min-content min-content; */
-    
-    
+    border-radius: 5px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+    background-color: #2C3539;
+    color: white;
+  }
+  .userauth select {
+    background-color: white;
+  }
+
+  button {
+    width: 100%;
+    font-size: large;
+    color: white;
+    background-color: gray;
+    border: 1px solid black;
+    cursor: pointer;
+    box-sizing: border-box;
+ 
   }
   
-  .greeting {
-    box-sizing: border-box;
-    border: 1px black solid;
+  button:hover {
+    cursor: pointer;
+    background-color: rgb(147, 147, 147);
+  }
+  
+
+
+
+
+
+
+
+
+
+/*testing - Karl */
+
+/*testing - Karl */
+
+.pageContent {
+    
+    display: grid;
+    gap: 1rem;
+    /*! grid-column: 1 / 2; */
+  padding: 0.5rem;
+  
+/*     grid-template-columns: 1fr min-content;
+  grid-template-rows: 1fr min-content min-content; */
+  
+  
+}
+
+.greeting {
+  box-sizing: border-box;
+  border: 1px black solid;
+  background-color: gray;
+  color: white;
+  margin: 0;
+  padding: 1rem;
+  
+}
+
+.userData {
+  
+    /*! padding: 1rem; */
+  gap: 1rem;
+  /*! display: flex; */
+  /*! flex-direction: column; */
+    grid-column: 1;
+    display: grid;
+  width: 100%;
+}
+
+.userId, .auditData {
+  box-sizing: border-box;
+  border: 1px black solid;
+  background-color: gray;
+  color: white;
+  
+  
+  padding: 0 0.5rem
+}
+
+
+.totalXp, .auditRatio {
+  margin-top: 0; 
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.lineGraph, .barChart{
+  box-sizing: border-box;
+  border: 1px black solid;
     background-color: gray;
     color: white;
-    margin: 0;
+    text-align: center;
     padding: 1rem;
     
-  }
-  
-  .userData {
-    
-      /*! padding: 1rem; */
-    gap: 1rem;
-    /*! display: flex; */
-    /*! flex-direction: column; */
-      grid-column: 1;
-      display: grid;
     width: 100%;
+    grid-column: 2;
+}
+
+.serverResponse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.bar {
+    fill: black;
   }
   
-  .userId, .auditData {
-    box-sizing: border-box;
-    border: 1px black solid;
-    background-color: gray;
-    color: white;
-    
-    
-    padding: 0 0.5rem
+  .line {
+    fill: none;
+    stroke: black;
+    stroke-width: 2px;
   }
   
-  
-  .totalXp, .auditRatio {
-    margin-top: 0; 
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .lineGraph, .barChart{
-    box-sizing: border-box;
-    border: 1px black solid;
-      background-color: gray;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      
-      width: 100%;
-      grid-column: 2;
-  }
-  
-  .serverResponse {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-  }
-  
-  .bar {
-      fill: black;
-    }
-    
-    .line {
-      fill: none;
-      stroke: black;
-      stroke-width: 2px;
-    }
-    
-  
-    /* tauno 10.07 */
-  
-    .label, .tick, text {
-      fill: white;
-      font-size: 0.75rem;
-  }
-  .bar {
-      fill: black;
-  }
-  
+
+  /* tauno 10.07 */
+
+  .label, .tick, text {
+    fill: white;
+    font-size: 0.75rem;
+}
+.bar {
+    fill: black;
+}
+
+
+.serverResponse {
+  margin-top: 1rem;
+  color: white;
+  font-size: 1.5rem;
+}
