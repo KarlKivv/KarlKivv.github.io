@@ -555,8 +555,13 @@
                     .classed('visible', false);
     
                 d3.select('.pieTooltip')
-                    .text(`${d.data.object.name} \n ${(d.data.amount / 1000).toFixed(2)}kb`)
                     .classed('visible', true);
+    
+                d3.select('.pieTooltipName')
+                    .text(`${d.data.object.name}`);
+    
+                d3.select('.pieTooltipXp')
+                    .text(`${(d.data.amount / 1000).toFixed(2)}kb`);
             })
             .on('mouseleave', function () {
                 d3.select(this)
@@ -577,18 +582,34 @@
             .attr('x', '250')
             .attr('y', '250');
     
+        d3.select('.pieTooltip')
+            .append('tspan')
+            .classed('pieTooltipName', true)
+            .attr('x', '250')
+            .attr('dy', '0');
+            
+        d3.select('.pieTooltip')
+            .append('tspan')
+            .classed('pieTooltipXp', true)
+            .attr('x', '250')
+            .attr('dy', '1em');
+            
         svg.append('text')
             .attr('class', 'piePlaceholder')
             .style('pointer-events', 'none')
             .attr('x', '250')
             .attr('y', '250')
-            .classed('visible', true)
+            .classed('visible', true);
+    
+        d3.select('.piePlaceholder')
             .append('tspan')
-            .text("Hover over a")
+            .text("Hover over a slice")
             .attr('x', '250')
-            .attr('dy', 0)
+            .attr('dy', 0);
+    
+        d3.select('.piePlaceholder')
             .append('tspan')
-            .text("slice for details")
+            .text("for more details")
             .attr('x', '250')
             .attr('dy', '1em');
     }
