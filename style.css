@@ -149,8 +149,7 @@ button:hover {
 }
 
 .pieChart svg text {
-  color: gray;
-  position: relative;
+  /* position: relative; */
   text-anchor: middle;
   white-space: pre-line;
   display: none;

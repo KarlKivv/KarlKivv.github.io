@@ -1,3 +1,5 @@
+// this file is used in the online version only
+
 (function () {
     //// From Queries.js
     const userQuery = `{
@@ -580,8 +582,15 @@
             .style('pointer-events', 'none')
             .attr('x', '250')
             .attr('y', '250')
-            .text("Hover over a \n slice for details")
-            .classed('visible', true);
+            .classed('visible', true)
+            .append('tspan')
+            .text("Hover over a")
+            .attr('x', '250')
+            .attr('dy', 0)
+            .append('tspan')
+            .text("slice for details")
+            .attr('x', '250')
+            .attr('dy', '1em');
     }
 
     window.publicInterface = {
