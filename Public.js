@@ -371,7 +371,7 @@
             })
             .attr("text-anchor", "middle")
             .text(function(d) { 
-                return d[1].toFixed(2); 
+                return d[1].toFixed(0); 
             });
     }
     
