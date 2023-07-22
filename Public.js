@@ -14,39 +14,42 @@
     const userXpQuery = `{
         transaction_aggregate(
             where: {
-            _and: [
-                {
-                _or: [
-                    {object: {type: {_eq: "project"}}},
-                    {object: {type: {_eq: "piscine"}}},
-                    {object: {type: {_eq: "bonus"}}},
-                ]
-                }, 
-                {type: {_eq: "xp"}}, 
-                {eventId: {_eq: 20}}]
+              _or: [
+                {_and: [
+                  {
+                    _or: [
+                      {object: {type: {_eq: "project"}}},
+                      {object: {type: {_eq: "piscine"}}},
+                    ]
+                  }, 
+                  {type: {_eq: "xp"}}, 
+                  {eventId: {_eq: 20}}
+                ]},
+                {object: {type: {_eq: "bonus"}}}
+              ]
             }
-        ) {
+          ) {
             aggregate {
-                sum {
-                    amount
-                }
+              sum {
+                amount
+              }
             }
         }
     }`
 
-    const userBonusXpQuery = `{
-        transaction_aggregate(
-            where: {
-                object: {type: {_eq: "bonus"}}
-            }
-        ) {
-            aggregate {
-                sum {
-                    amount
-                }
-            }
-        }
-    }`
+    // const userBonusXpQuery = `{
+    //     transaction_aggregate(
+    //         where: {
+    //             object: {type: {_eq: "bonus"}}
+    //         }
+    //     ) {
+    //         aggregate {
+    //             sum {
+    //                 amount
+    //             }
+    //         }
+    //     }
+    // }`
         
     const userUpXpQuery = `{
         transaction_aggregate(
@@ -95,19 +98,22 @@
     const XpPerName = `{
         transaction(
             where: {
-            _and: [
-                {
-                _or: [
-                    {object: {type: {_eq: "project"}}},
-                    {object: {type: {_eq: "piscine"}}},
-                ]
-                }, 
-                {type: {_eq: "xp"}},
-                {eventId: {_eq: 20}},
-            ]
+              _or: [
+                {_and: [
+                  {
+                    _or: [
+                      {object: {type: {_eq: "project"}}},
+                      {object: {type: {_eq: "piscine"}}},
+                    ]
+                  }, 
+                  {type: {_eq: "xp"}},
+                  {eventId: {_eq: 20}},
+                ]},
+                {object: {type: {_eq: "bonus"}}}
+              ]
             }, 
             order_by: {
-                createdAt:asc
+              createdAt:asc
             }
         ) {
             object {
@@ -218,15 +224,15 @@
 
                 var xpData = await sendQuery(userXpQuery);
 
-                //testing
-                var bonusXpData = await sendQuery(userBonusXpQuery);
+                // //testing
+                // var bonusXpData = await sendQuery(userBonusXpQuery);
                 
                 var auditData = await fetchUserAuditRatio();
 
                 if (xpData.errors || auditData == null || bonusXpData.errors) {
                     console.log(xpData.errors || bonusXpData.errors);
                 } else {
-                    renderFrontPage(userLogin, firstName, lastName, xpData.data.transaction_aggregate.aggregate.sum.amount * 1 + bonusXpData.data.transaction_aggregate.aggregate.sum.amount * 1, auditData);
+                    renderFrontPage(userLogin, firstName, lastName, xpData.data.transaction_aggregate.aggregate.sum.amount, auditData);
                 }
             }
         } catch (error) {
