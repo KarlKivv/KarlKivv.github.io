@@ -33,6 +33,20 @@
             }
         }
     }`
+
+    const userBonusXpQuery = `{
+        transaction_aggregate(
+            where: {
+                object: {type: {_eq: "bonus"}}
+            }
+        ) {
+            aggregate {
+                sum {
+                    amount
+                }
+            }
+        }
+    }`
         
     const userUpXpQuery = `{
         transaction_aggregate(
@@ -203,12 +217,16 @@
                 var lastName = data.data.user[0].lastName;
 
                 var xpData = await sendQuery(userXpQuery);
+
+                //testing
+                var bonusXpData = await sendQuery(userBonusXpQuery);
+                
                 var auditData = await fetchUserAuditRatio();
 
-                if (xpData.errors || auditData == null) {
-                    console.log(xpData.errors);
+                if (xpData.errors || auditData == null || bonusXpData.errors) {
+                    console.log(xpData.errors || bonusXpData.errors);
                 } else {
-                    renderFrontPage(userLogin, firstName, lastName, xpData.data.transaction_aggregate.aggregate.sum.amount, auditData);
+                    renderFrontPage(userLogin, firstName, lastName, xpData.data.transaction_aggregate.aggregate.sum.amount * 1 + bonusXpData.data.transaction_aggregate.aggregate.sum.amount * 1, auditData);
                 }
             }
         } catch (error) {
