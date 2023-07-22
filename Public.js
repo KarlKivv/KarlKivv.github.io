@@ -229,8 +229,8 @@
                 
                 var auditData = await fetchUserAuditRatio();
 
-                if (xpData.errors || auditData == null || bonusXpData.errors) {
-                    console.log(xpData.errors || bonusXpData.errors);
+                if (xpData.errors || auditData == null) {
+                    console.log(xpData.errors);
                 } else {
                     renderFrontPage(userLogin, firstName, lastName, xpData.data.transaction_aggregate.aggregate.sum.amount, auditData);
                 }
