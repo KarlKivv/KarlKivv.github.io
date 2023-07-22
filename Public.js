@@ -19,6 +19,7 @@
                 _or: [
                     {object: {type: {_eq: "project"}}},
                     {object: {type: {_eq: "piscine"}}},
+                    {object: {type: {_eq: "bonus"}}},
                 ]
                 }, 
                 {type: {_eq: "xp"}}, 
